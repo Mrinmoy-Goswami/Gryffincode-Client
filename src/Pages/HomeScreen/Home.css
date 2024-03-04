@@ -1,0 +1,22 @@
+.background{
+background-image: url('../../assets/Hogwarts3.png');
+background-size:cover;
+background-position: center;
+background-repeat: no-repeat;
+filter: brightness(20%);
+/* border-image: fill 0 linear-gradient(#0001,#000); */
+
+}
+
+
+.glow{
+    animation: zoomIn 6s ;
+}
+@keyframes zoomIn {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
