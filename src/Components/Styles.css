@@ -1,17 +1,17 @@
 .logo {
-    background-color: #c39a1c; /* Gryffindor brown */
+    /* background-color: #19e478; Gryffindor brown */
     animation: wand-glow 2s ease-in-out infinite;
     /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); */
 }
 @keyframes wand-glow {
     0% {
-      box-shadow: 0 0 0 #ffd700; /* Gold glow */
+      box-shadow: 0 0 0 #19e478; /* Gold glow */
     }
     50% {
-      box-shadow: 0 0 10px #ffd700;
+      box-shadow: 0 0 30px #19e478;
     }
     100% {
-      box-shadow: 0 0 0 #ffd700;
+      box-shadow: 0 0 0 #19e478;
     }
   }
 

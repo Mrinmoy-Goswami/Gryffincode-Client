@@ -1,21 +1,18 @@
 export default  navigation  = [
     {
         tab:"Hogwarts",
-        link:""
+        link:"Home"
     },
     {
         tab:"Hogwarts Library",
-        link:""
+        link:"quests"
     },
     {
         tab:"Platform 9 ¾",
-        link:""
+        link:"about"
     }, {
         tab:"Owl Post",
-        link:""
-    } ,{
-        tab:"The Prophecy Chamber",
-        link:""
-    }
+        link:"Contact"
+    } 
 ]
 

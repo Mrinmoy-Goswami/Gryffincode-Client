@@ -1,5 +1,6 @@
 import garvi from "../assets/garvi.jpeg"
 import mrin from "../assets/Mrin.jpg"
+import atharva from "../assets/atharva.jpeg"
 
 
 export const testimonials = [
@@ -16,7 +17,7 @@ export const testimonials = [
       message:"A magical journey into the world of coding! This platform has transformed my understanding of programming, making learning feel like brewing potions at Hogwarts - full of wonder and excitement."  
     },
     {
-        image:"",
+        image:atharva,
         name:"Atharva Chopde",
         designation:"Software Engineer, Mphasis",
         message:"An enchanting experience! With its captivating challenges and supportive community, this site has helped me unlock the secrets of coding, just like uncovering hidden passages in the corridors of Hogwarts"  

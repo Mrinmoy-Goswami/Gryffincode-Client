@@ -8,7 +8,12 @@ export const  roadmaps = [
     {
         image:frontend,
         name:"Frontend Wizardry",
-        color:"indigo"
+        color:"indigo",
+        link:'/frontend'
+    },{
+        image:DSA,
+        name:"Enchanted Efficiency Engineer",
+        color:"red"
     },
     {
         image:DataScience,
@@ -18,10 +23,6 @@ export const  roadmaps = [
         image:ML,
         name:"Magical Machine Mind",
         color:"green"
-    },{
-        image:DSA,
-        name:"Enchanted Efficiency Engineer",
-        color:"red"
     }
     ]
     
