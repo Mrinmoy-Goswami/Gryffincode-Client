@@ -17,7 +17,7 @@ const CodingScreen = () => {
     <>
     <div className="w-screen h-screen  background fixed top-0  z-[-1]  m-0 p-0"></div>
     <div className='w-screen h-screen'>
-      <CodeEditor problemDescription={data.description} title={data.title}
+      <CodeEditor problemId={data._id} problemDescription={data.description} title={data.title}
       difficulty={data.difficulty} exampleInput={data.exampleInput} exampleOutput={data.exampleOutput }  testCases={data.testCases}
       />
     </div>

@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { executeCode } from "../api";
+import SubmitModal from "./SubmitModal";
+import { url } from "../../../Constants/url";
+import axios from "axios";
 
-const Output = ({ editorRef, language,testCases,exampleOutput,exampleInput }) => {
-  console.log(String(exampleOutput))
+const Output = ({questionId, editorRef, language,testCases,housePoints,exampleOutput,exampleInput }) => {
+  // console.log(String(exampleOutput))
   const [output, setOutput] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitting,setIsSubmitting] = useState(false)
   const [isError, setIsError] = useState(false);
-  const [isCorrect,setIsCorrect] = useState("");
+  const [isCorrect,setIsCorrect] = useState(false);
 
 
   // useEffect(()=>{
@@ -61,10 +64,15 @@ const Output = ({ editorRef, language,testCases,exampleOutput,exampleInput }) =>
         setOutput(outputLines)
         const outputString = outputLines.join('');
         if(outputString == exampleOutput){
-          alert("Correct")
+          setIsCorrect(true);
+          await axios.post(`${url}/judge/submit`,{
+            questionId : questionId,
+            userId : localStorage.getItem('id'),
+            housePoints : Number(housePoints)
+          }).then((response)=>console.log(response.data))
         }
         else{
-          alert("incorrect")
+        
         }
       } catch (error) {
         console.log(error);
@@ -73,12 +81,17 @@ const Output = ({ editorRef, language,testCases,exampleOutput,exampleInput }) =>
         setIsSubmitting(false);
         const { run: result } = await executeCode(language, sourceCode);
         setOutput(result.output.split("\n"));
+        window.location.reload()
         
       }
     }
   }
 
   return (
+    <>{
+      isCorrect ? 
+    <SubmitModal/>:<></>
+    }
     <div className=" w-[90%] h-full mx-4 mr-5 p-3  bg-gray-900 rounded shadow-md shadow-emerald-500 "> {/* Main container */}
    
       <button
@@ -87,7 +100,7 @@ const Output = ({ editorRef, language,testCases,exampleOutput,exampleInput }) =>
         }`}
         disabled={isLoading}
         onClick={runCode}
-      >
+        >
         {isLoading ? "Running..." : "Run Code"}
       </button>
       <button
@@ -96,14 +109,14 @@ const Output = ({ editorRef, language,testCases,exampleOutput,exampleInput }) =>
         }`}
         disabled={isSubmitting}
         onClick={submitCode}
-      >
+        >
         {isSubmitting ? "Submitting..." : "Submit Code"}
       </button>
       <div
         className={`mr-5 pr-5 p-2 rounded-md shadow-md mt-4 text-white font-potter ${
           isError ? "border border-red-500 text-red-500" : "border border-emerald-500"
         } `}
-      >
+        >
         <span className="flex flex-col">
          <p>Input : {exampleInput} </p>
          
@@ -121,6 +134,7 @@ const Output = ({ editorRef, language,testCases,exampleOutput,exampleInput }) =>
         )}
       </div>
     </div>
+        </>
   );
 };
 

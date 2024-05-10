@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import nav from "../Constants/nav";
 import logo from "../assets/logo.jpeg";
 import "./Styles.css";
@@ -8,12 +8,26 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
+  const [isPlaying,setIsPlaying] = useState(false);
   const logOut = () => {
     localStorage.removeItem("user");
     navigate("/");
+
   };
+  function toggleMusic() {
+      setIsPlaying(!isPlaying);
+    }
   return (
     <nav className="w-full h-1/10 m-0 p-0 shadow-emerald-400 shadow-xl flex flex-row">
+      {
+        isPlaying ?
+        <audio loop autoPlay>
+        <source src="src\assets\Theme.m4a" type="audio/mp4" />
+   
+      </audio>
+      :
+      <></>
+      }
       <ul className="flex flex-row w-full text-white font-potter text-xl">
         <img className="h-14 w-14 m-2 logo rounded-full" src={logo} />
         {nav.map((item, index) => (
@@ -27,8 +41,16 @@ const Navbar = () => {
           </Link>
         ))}
       </ul>
-      <span className="text-white w-1/4 pt-4 font-hero font-bold">
+      <span className="text-white w-1/4  font-hero font-bold flex justify-center items-center">
         {user.username},{user.house}
+      </span>
+      <span>
+        <button
+          className="shadow-sm shadow-emerald-400 p-2 m-4 text-white font-potter hover:text-black hover:bg-white text-xs"
+         onClick={toggleMusic}
+        >
+          {isPlaying ? "Stop" :"Hedwig's"}
+        </button>
       </span>
       <span>
         <button

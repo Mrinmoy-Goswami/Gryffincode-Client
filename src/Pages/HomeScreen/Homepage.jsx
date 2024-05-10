@@ -20,6 +20,7 @@ function load(){
   setTimeout(()=>setLoading(false),3000)
 }
 load();
+
   return (
   
 

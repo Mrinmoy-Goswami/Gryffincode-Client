@@ -60,7 +60,7 @@ const Problempage = () => {
                 <ReportCard
                   challenges={userDetails.solvedProblems.length}
                   house={userDetails.house}
-                  housepoints={"1400"}
+                  housepoints={userDetails.housePoints}
                   title={userDetails.title}
                 />
               )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { url } from '../../Constants/url';
 import axios from 'axios';
@@ -10,6 +10,14 @@ function LoginForm() {
     email: '',
     password: '',
   });
+
+  useEffect(()=>{
+    const loggedIn = localStorage.getItem('user');
+    if(loggedIn){
+      navigate('/Home')
+
+    } 
+  },[])
 
   const handleChange = (e) => {
     setFormData({
