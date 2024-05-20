@@ -3,6 +3,7 @@ import { executeCode } from "../api";
 import SubmitModal from "./SubmitModal";
 import { url } from "../../../Constants/url";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Output = ({questionId, editorRef, language,testCases,housePoints,exampleOutput,exampleInput }) => {
   // console.log(String(exampleOutput))
@@ -11,7 +12,7 @@ const Output = ({questionId, editorRef, language,testCases,housePoints,exampleOu
   const [isSubmitting,setIsSubmitting] = useState(false)
   const [isError, setIsError] = useState(false);
   const [isCorrect,setIsCorrect] = useState(false);
-
+  const navigate = useNavigate()
 
   // useEffect(()=>{
   //   if(output !== exampleOutput){

@@ -6,6 +6,8 @@ import SignupForm from "./Pages/Signup/Signup";
 import LoginForm from "./Pages/Signup/Login";
 import CodingScreen from "./Pages/CodingScreen/CodingScreen";
 import Sorting from "./Pages/SortingCeremony/Sorting";
+import AboutUs from "./Pages/AboutScreen/AboutUs";
+import ContactPage from "./Pages/Contactpage/Contactpage";
 
 const App = () => {
 
@@ -29,6 +31,8 @@ const App = () => {
         <Route path = '/Coding' element = {<CodingScreen/>}/>
         <Route path = '/sorting' element = {<Sorting/>}/>
         <Route path = '/signup' element = {<SignupForm/>}/>
+        <Route path = '/about' element = {<AboutUs/>}/>
+        <Route path = '/contact' element = {<ContactPage/>}/>
       </Routes> 
     </Router>
   );

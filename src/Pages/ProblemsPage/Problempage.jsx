@@ -9,11 +9,7 @@ import { url } from "../../Constants/url";
 const Problempage = () => {
   const [loading, setLoading] = useState(true);
   const userDetails = JSON.parse(localStorage.getItem('user'));
-  function load() {
-    setTimeout(() => setLoading(false), 1000);
-  }
-
-  load();
+ 
 
   const [selectedProblem, setSelectedProblem] = useState("");
   const [problems, setProblems] = useState([]);
@@ -23,9 +19,11 @@ const Problempage = () => {
       try {
         const response = await axios.get(`${url}/problem/allProblems`);
         setProblems(response.data);
-        console.log(response.data)
+        setLoading(false)
+        // console.log(response.data)
       } catch (error) {
         console.log(error);
+        setLoading(false)
       }
     };
     fetchData();

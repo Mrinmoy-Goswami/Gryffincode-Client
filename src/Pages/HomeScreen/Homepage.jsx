@@ -71,7 +71,11 @@ load();
         <div className="h-[19rem]">
 
         </div>
+       
+        <div>
         <Footer />
+        </div>
+      
       </div>
    
     

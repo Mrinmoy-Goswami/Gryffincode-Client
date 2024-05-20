@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="mx-auto flex flex-col items-center h-full">
         <p className="text-lg font-semibold ">©Gryffincode 2024</p>
         <p className="text-sm mt-4">
-          Designed and Developed by Wizards of Hogwarts
+          Designed and Developed by the Wizards of Hogwarts
         </p>
         <div className="flex mt-4 space-x-4">
           <a href="#" className="hover:text-gray-400">

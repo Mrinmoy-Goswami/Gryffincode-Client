@@ -12,7 +12,7 @@ export default  navigation  = [
         link:"about"
     }, {
         tab:"Owl Post",
-        link:"Contact"
+        link:"contact"
     } 
 ]
 

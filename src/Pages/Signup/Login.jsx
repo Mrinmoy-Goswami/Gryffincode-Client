@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { url } from '../../Constants/url';
 import axios from 'axios';
+import LoaderModal from '../../Components/Loader';
 
 function LoginForm() {
+  const[loading,setLoading] = useState(false)
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     username: '',
@@ -27,6 +29,7 @@ function LoginForm() {
   };
 
   const handleSubmit = async(e) => {
+    setLoading(true)
     e.preventDefault();
     try {
       
@@ -39,14 +42,17 @@ function LoginForm() {
       if(response.data.house !== null){
         localStorage.setItem("user",JSON.stringify(response.data))
         console.log("House is there")
+        setLoading(false)
         navigate('/Home')
       }
       else{
         localStorage.setItem('id',response.data._id)
+        setLoading(false)
         navigate("/sorting")
       }
     } catch (error) {
-     alert(error.response.data)
+     console.log(error.response.data)
+     alert("Merlin's beard, it appears a spell has gone awry!")
     }
     // Handle form submission logic here
     // console.log(formData);
@@ -57,9 +63,14 @@ function LoginForm() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <>
+    {loading ? <LoaderModal/> :
+    
+    <>
+   <div className='h-screen w-screen fixed inset-0 z-[0] background '></div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 z-[1]">
        
-      <div className="max-w-md w-full space-y-8 bg-gray-800 p-8 rounded-lg">
+      <div className="max-w-md w-full space-y-8 bg-gray-800 p-8 rounded-lg z-[1]">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold  font-hero text-[#c39a1c]">
             Welcome to Gryffincode
@@ -81,7 +92,7 @@ function LoginForm() {
                 placeholder="Username"
                 value={formData.username}
                 onChange={handleChange}
-              />
+                />
             </div>
             <div>
               <label htmlFor="email" className="sr-only">
@@ -136,6 +147,9 @@ function LoginForm() {
       </div>
              
     </div>
+      </>
+      }
+                </>
   );
 }
 

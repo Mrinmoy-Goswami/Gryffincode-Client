@@ -43,16 +43,10 @@ const CodeEditor = ({problemId,problemDescription,title,housepoints,exampleInput
     ifSolved();
   }, []);
   
-  const onSelect = (language) => {
-    setLanguage(language);
-    setValue(CODE_SNIPPETS[language]);
-  };
-
+ 
   return (
     <div className="container flex flex-row w-screen ">  {/* Main container */}
-      {/* <div className="flex items-center justify-between mb-4"> 
-        <LanguageSelector language={language} onSelect={onSelect} />
-      </div> */}
+    
       <div className="w-1/2 text-white m-3 p-3  ">
         <span className="w-full flex justify-center text-xl font-hero font-bold text-[#c39a1c]">
 
