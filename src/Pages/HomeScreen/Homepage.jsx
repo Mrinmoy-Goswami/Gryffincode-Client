@@ -11,6 +11,7 @@ import Testimonials from "../../Components/Testimonials.jsx";
 import {testimonials} from "../../Constants/testimonials.js";
 import { Link } from "react-router-dom";
 import LoaderModal from "../../Components/Loader.jsx";
+import Auth from "../../Components/Auth.jsx";
 
 
 const Homepage = () => {
@@ -83,4 +84,4 @@ load();
   );
 };
 
-export default Homepage;
+export default Auth(Homepage) ;

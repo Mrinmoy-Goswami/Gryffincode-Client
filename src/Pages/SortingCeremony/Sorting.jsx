@@ -6,6 +6,7 @@ import { TypeAnimation } from 'react-type-animation';
 import axios from 'axios';
 import { url } from '../../Constants/url';
 import "./sorting.css"
+import Auth from '../../Components/Auth';
 
 const Sorting = () => {
   const[house,setHouse]  = useState('')
@@ -59,7 +60,7 @@ useEffect(()=>{
   
 <Lottie animationData={loader} className='h-40 w-40' autoPlay/>
 </div>
-<span className='mt-5 font-10 w-1/2 h-1/3 font-potter '>
+<span className='mt-5 font-10 w-full xl:w-1/2  h-1/3 font-potter mb-5'>
   
 <TypeAnimation
       
@@ -71,12 +72,12 @@ useEffect(()=>{
         ]}
         wrapper="span"
         speed={120}
-        style={{ fontSize: '0.5 rem' , color:"#c39a1c",marginBottom:"0px" }}
+        style={{ fontSize: '0.2 rem' , color:"#c39a1c",marginBottom:"15px" }}
        
         />
   </span>
   <p className='text-[#c39a1c] font-hero'>Assigned House : </p>
-  <span className="font-bold font-hero text-[#c39a1c] text-[50px] slide-in-top shadow-lg shadow-red-400  rounded-full p-4">
+  <span className="font-bold font-hero text-[#c39a1c] text-[40px] slide-in-top shadow-lg shadow-red-400  rounded-full p-4">
     <p className='house'>{house}</p>
   </span>
   <span>
@@ -95,4 +96,4 @@ useEffect(()=>{
   );
 };
 
-export default Sorting;
+export default Auth(Sorting);

@@ -19,7 +19,7 @@ function LoginForm() {
       navigate('/Home')
 
     } 
-  },[])
+  },[navigate])
 
   const handleChange = (e) => {
     setFormData({
@@ -50,12 +50,17 @@ function LoginForm() {
         setLoading(false)
         navigate("/sorting")
       }
+      setLoading(false)
     } catch (error) {
      console.log(error.response.data)
-     alert("Merlin's beard, it appears a spell has gone awry!")
+     alert("Merlin's beard, it appears a spell has gone awry!"
+      + error.response.data
+     )
+     setLoading(false)
+
+     navigate('/login')
     }
-    // Handle form submission logic here
-    // console.log(formData);
+   
   };
 
   const handleSignup = ()=>{

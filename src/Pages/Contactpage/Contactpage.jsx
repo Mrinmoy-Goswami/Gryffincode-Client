@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../Components/Navbar";
-
+import Auth from "../../Components/Auth";
 const ContactPage = () => {
   return (
     <>
@@ -71,4 +71,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default Auth(ContactPage);

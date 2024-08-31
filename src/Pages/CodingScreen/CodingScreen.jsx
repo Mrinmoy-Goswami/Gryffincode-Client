@@ -3,6 +3,7 @@ import CodeEditor from './components/Editor'
 import { useLocation,useParams } from 'react-router-dom'
 import axios from 'axios'
 import { url } from '../../Constants/url'
+import Auth from '../../Components/Auth'
 const CodingScreen = () => {
  
   const location = useLocation()
@@ -25,4 +26,4 @@ const CodingScreen = () => {
   )
 }
 
-export default CodingScreen
+export default Auth(CodingScreen)
