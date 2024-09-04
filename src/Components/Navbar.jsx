@@ -11,6 +11,8 @@ const Navbar = () => {
   const [isPlaying,setIsPlaying] = useState(false);
   const logOut = () => {
     localStorage.removeItem("user");
+    localStorage.removeItem("id");
+
     navigate("/");
 
   };

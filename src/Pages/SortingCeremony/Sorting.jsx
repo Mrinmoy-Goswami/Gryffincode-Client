@@ -31,10 +31,10 @@ const Sorting = () => {
   
       try {
         const response = await axios.post(`${url}/auth/houseSorting`, {
-          id: localStorage.getItem('id'),
+          id: JSON.parse(localStorage.getItem('id')),
           house: house
         });
-        
+        console.log(response.data)
         // Update localStorage 'user' item
         localStorage.setItem('user', JSON.stringify(response.data));
         setEnter(false)

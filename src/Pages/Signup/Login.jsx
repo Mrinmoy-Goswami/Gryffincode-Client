@@ -40,13 +40,15 @@ function LoginForm() {
       })
       
       if(response.data.house !== null){
+        localStorage.setItem('id',JSON.stringify(response.data._id))
         localStorage.setItem("user",JSON.stringify(response.data))
         console.log("House is there")
         setLoading(false)
         navigate('/Home')
       }
       else{
-        localStorage.setItem('id',response.data._id)
+        localStorage.setItem('id',JSON.stringify(response.data._id))
+        localStorage.setItem("user",JSON.stringify(response.data))
         setLoading(false)
         navigate("/sorting")
       }
@@ -65,6 +67,34 @@ function LoginForm() {
 
   const handleSignup = ()=>{
     navigate('/signup')
+  }
+  const handleGuestLogin = async(e)=>{
+    setLoading(true)
+    e.preventDefault();
+    try {
+      
+      const response = await axios.post(`${url}/auth/login`,{
+        username : "test99",
+        email: "test99@gmail.com",
+        password: "123"
+      })
+      localStorage.setItem("user",JSON.stringify(response.data))
+      localStorage.setItem('id',JSON.stringify(response.data._id))
+
+      console.log("House is there")
+      setLoading(false)
+      navigate('/Home')
+      setLoading(false)
+    } catch (error) {
+     console.log(error.response.data)
+     alert("Merlin's beard, it appears a spell has gone awry!"
+      + error.response.data
+     )
+     setLoading(false)
+
+     navigate('/login')
+    }
+   
   }
 
   return (
@@ -135,10 +165,17 @@ function LoginForm() {
 
           <div>
             <button
-              type="submit"
+             type='submit'
               className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"
               >
               Login
+            </button>
+            <button
+            onClick={handleGuestLogin}
+              type="button"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4"
+              >
+              Login as Test User
             </button>
             <button
               type="submit"

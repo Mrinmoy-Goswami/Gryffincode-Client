@@ -26,4 +26,4 @@ const CodingScreen = () => {
   )
 }
 
-export default Auth(CodingScreen)
+export default CodingScreen

@@ -68,7 +68,7 @@ const Output = ({questionId, editorRef, language,testCases,housePoints,exampleOu
           setIsCorrect(true);
           await axios.post(`${url}/judge/submit`,{
             questionId : questionId,
-            userId : localStorage.getItem('id'),
+            userId : JSON.parse(localStorage.getItem('id')),
             housePoints : Number(housePoints)
           }).then((response)=>console.log(response.data))
         }

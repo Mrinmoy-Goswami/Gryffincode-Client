@@ -24,8 +24,9 @@ const CodeEditor = ({problemId,problemDescription,title,housepoints,exampleInput
     async function ifSolved() {
       try {
         const userId = localStorage.getItem('id');
+        console.log(JSON.parse(userId))
         const response = await axios.post(`${url}/auth/userQuests`, {
-          userId: userId // Sending userId in the request body
+          userId: JSON.parse(userId) // Sending userId in the request body
         });
         console.log(response.data);
         if (response.data.solvedProblems.includes(problemId)) {
