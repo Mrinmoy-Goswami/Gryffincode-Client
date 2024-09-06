@@ -13,6 +13,9 @@ export default  navigation  = [
     }, {
         tab:"Owl Post",
         link:"contact"
-    } 
+    } ,{
+        tab:"House Rankings",
+        link:'houseRanking'
+    }
 ]
 

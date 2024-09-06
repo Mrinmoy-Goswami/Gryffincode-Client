@@ -1,5 +1,5 @@
 import React from 'react'
-import Problemcard from './Problemcard'
+// import Problemcard from './Problemcard'
 
 const ReportCard = ({challenges,house,housepoints,title}) => {
   return (

@@ -14,7 +14,7 @@ const handlemouseEnter = ()=>{
 }
 
   return (
-    <div className={`m-5 flex  w-1/6 justify-center 2xl:h-[15rem] xl:h-[10rem] h-[13rem]  overflow-hidden shadow-2xl 
+    <div className={`m-5 flex  w-1/6 justify-center 2xl:h-[15rem] xl:h-[10rem] h-[13rem] 2xl:w-[15rem] xl:w-[10rem] w-[13rem]  overflow-hidden shadow-2xl 
     shadow-red-600 rounded-full cursor-pointer `}
     id="floating"
     onMouseEnter={handlemouseEnter}
