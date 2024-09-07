@@ -20,7 +20,7 @@ const Navbar = () => {
       setIsPlaying(!isPlaying);
     }
   return (
-    <nav className="w-full h-1/10 m-0 p-0 shadow-emerald-400 shadow-xl flex flex-row">
+    <nav className="w-full h-1/10 m-0 p-0 shadow-emerald-400 shadow-xl flex flex-row ">
       {
         isPlaying ?
         <audio loop autoPlay>
@@ -36,19 +36,19 @@ const Navbar = () => {
           <Link to={`/${item.link}`} key={index}>
             <li
               key={index}
-              className="my-5 px-5 mx-5 hover:text-[#c39a1c] cursor-pointer hover:scale-110 delay-100 duration-100"
+              className="my-5 px-5 mx-5 hover:text-[#c39a1c] cursor-pointer hover:scale-110 delay-100 duration-100  text-sm xl:text-lg"
             >
               {item.tab}
             </li>
           </Link>
         ))}
       </ul>
-      <span className="text-white w-1/4  font-hero font-bold flex justify-center items-center">
+      <span className="text-white w-1/4  font-hero font-bold flex justify-center items-center text-[0.5rem] xl:text-lg">
         {user.username},{user.house}
       </span>
       <span>
         <button
-          className="shadow-sm shadow-emerald-400 p-2 m-4 text-white font-potter hover:text-black hover:bg-white text-xs"
+          className="shadow-sm shadow-emerald-400 p-2 m-4 text-white font-potter hover:text-black hover:bg-white text-xs" title="play theme"
          onClick={toggleMusic}
         >
           {isPlaying ? "Stop" :"Hedwig's"}

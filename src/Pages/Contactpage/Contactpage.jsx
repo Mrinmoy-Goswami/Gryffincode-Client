@@ -8,7 +8,7 @@ const ContactPage = () => {
 
       <div className="h-screen w-screen  overflow-y-auto overflow-x-hidden ">
         <Navbar />
-        <div className="w-full h-full flex items-center justify-center">
+        {/* <div className="w-full h-full flex items-center justify-center"> */}
         <div className="contact-container  text-[#c39a1c] font-potter mt-10">
       <h1 className="font-hero font-bold text-xl">Contact Us</h1>
       <p>
@@ -66,7 +66,7 @@ const ContactPage = () => {
       
         
       </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };
