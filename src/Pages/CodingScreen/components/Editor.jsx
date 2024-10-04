@@ -79,7 +79,12 @@ const CodeEditor = ({problemId,problemDescription,title,housepoints,exampleInput
       </div>
       
       <div className="flex flex-col  w-1/2"> {/* Editor and output sections */}
-        <div className="editor w-full h-2/3 mr-4 overflow-auto bg-gray-100 p-4 rounded shadow-md m-4"> {/* Editor section */}
+        <div className="editor w-full h-1/3 mr-4 overflow-auto bg-gray-100 p-4 rounded shadow-md m-4"> {/* Editor section */}
+        <span title="Currently only JS is available " className="cursor-pointer rounded bg-black text-white font-potter px-2 py-1 mb-2">{language} 
+          <select className="bg-black cursor-pointer">
+          </select> 
+          <span className="mx-3 text-[12px]">(Currently only Javascript is available)</span>
+          </span>
           <Editor
             options={{
               minimap: {
@@ -95,9 +100,12 @@ const CodeEditor = ({problemId,problemDescription,title,housepoints,exampleInput
             onChange={(value) => setValue(value)}
           />
         </div>
+        <div className="h-1/3">
+
         <Output  questionId={problemId}  editorRef={editorRef} language={language}  
         exampleOutput={exampleOutput} exampleInput={exampleInput} housePoints = {housepoints}
         /> {/* Output section */}
+        </div>
       </div>
     </div>
   );
