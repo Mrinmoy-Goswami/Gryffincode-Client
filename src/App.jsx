@@ -25,11 +25,11 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={user?<Homepage />:<LoginForm/>} />
-        <Route path = '/frontend' element = {<Problempage/>}/>
+        {/* <Route path = '/frontend' element = {<Problempage/>}/> */}
         <Route path = '/login' element = {<LoginForm/>}/>
         <Route path = '/Home' element ={<Homepage/>}/>
         <Route path = '/quests' element = {<Problempage/>}/>
-        <Route path = '/Coding' element = {<CodingScreen/>}/>
+        <Route path = '/Coding' element = {user?<Homepage />:<CodingScreen/>}/>
         <Route path = '/sorting' element = {<Sorting/>}/>
         <Route path = '/signup' element = {<SignupForm/>}/>
         <Route path = '/about' element = {<AboutUs/>}/>
