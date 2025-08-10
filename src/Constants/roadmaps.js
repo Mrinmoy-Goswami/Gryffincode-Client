@@ -9,7 +9,7 @@ export const  roadmaps = [
         image:frontend,
         name:"Frontend Wizardry",
         color:"indigo",
-        link:'/frontend'
+        link:'/'
     },{
         image:DSA,
         name:"Enchanted Efficiency Engineer",
